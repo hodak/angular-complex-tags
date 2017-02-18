@@ -7,4 +7,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app works!';
+
+  tags = [
+    {
+      type: 'candidate',
+      name: 'Jon Doe',
+      email: 'jon.doe@example.com',
+    },
+    {
+      type: 'email',
+      email: 'hodor@example.com',
+    },
+  ]
 }
