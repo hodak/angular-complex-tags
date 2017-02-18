@@ -3,7 +3,7 @@ Tagger:
 <div class="tagger">
   <div class="tagger__tags">
     <span *ngFor="let tag of tags" class="tagger__tag">
-      <template [ngTemplateOutlet]="singleTagTemplate"
+      <template [ngTemplateOutlet]="singleTagTemplate || defaultSingleTagTemplate"
                 [ngOutletContext]="{tag: tag}">
       </template>
       <a href="#" (click)="delete(tag)">&times;</a>
@@ -17,3 +17,7 @@ Tagger:
     <span *ngIf="error">{{ error }}</span>
   </div>
 </div>
+
+<template #defaultSingleTagTemplate let-tag="tag">
+  {{ tag }}
+</template>
