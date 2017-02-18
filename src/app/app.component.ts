@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'app works!';
 
+  // TODO? tags must be unique - for deleting purposes
   tags = [
     {
       type: 'candidate',
@@ -20,11 +21,15 @@ export class AppComponent {
     },
   ]
 
+  emailValidator(value) {
+    return value.includes('@') ? null : 'Invalid e-mail address';
+  }
+
   handleNewTag(inputValue) {
     this.tags.push({ type: 'email', email: inputValue });
   }
 
-  emailValidator(value) {
-    return value.includes('@') ? null : 'Invalid e-mail address';
+  handleDeleteTag(tag) {
+    this.tags.splice(this.tags.indexOf(tag), 1);
   }
 }

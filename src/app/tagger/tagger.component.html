@@ -6,6 +6,7 @@ Tagger:
       <template [ngTemplateOutlet]="singleTagTemplate"
                 [ngOutletContext]="{tag: tag}">
       </template>
+      <a href="#" (click)="delete(tag)">&times;</a>
     </span>
 
     <input class="tagger__input"

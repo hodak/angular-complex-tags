@@ -11,6 +11,7 @@ export class TaggerComponent {
   @Input() delimiterKeyCodes = [32, 13]; // [space, enter]
   @Input() tagValidator = (_) => null;
   @Output() newTag = new EventEmitter();
+  @Output() deleteTag = new EventEmitter();
 
   error;
 
@@ -26,5 +27,9 @@ export class TaggerComponent {
 
     this.newTag.emit(input.value);
     input.value = '';
+  }
+
+  delete(tag) {
+    this.deleteTag.emit(tag);
   }
 }
