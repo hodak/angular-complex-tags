@@ -8,16 +8,23 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class TaggerComponent {
   @Input() tags = [];
   @Input() singleTagTemplate;
-  @Input() delimiterKeyCode = 32;
-  @Input() inputValue = '';
+  @Input() delimiterKeyCodes = [32, 13]; // [space, enter]
+  @Input() tagValidator = (_) => null;
   @Output() newTag = new EventEmitter();
 
-  onKeyUp(event) {
-    if(event.keyCode !== this.delimiterKeyCode) { return }
-    this.inputValue = this.inputValue.substring(0, this.inputValue.length - 1);
-    if(this.inputValue.length === 0) { return }
+  error;
 
-    this.newTag.emit(this.inputValue);
-    this.inputValue = '';
+  onKeyUp(event, input) {
+    if(this.delimiterKeyCodes.indexOf(event.keyCode) === -1) { return }
+
+    input.value = input.value.trim();
+    if(input.value.length === 0) { return }
+
+    let error = this.tagValidator(input.value)
+    if(error) { return this.error = error; }
+    this.error = null;
+
+    this.newTag.emit(input.value);
+    input.value = '';
   }
 }

@@ -11,7 +11,8 @@ Tagger:
     <input class="tagger__input"
            placeholder="Add new tag"
            #input
-           [(ngModel)]="inputValue"
-           (keyup)="onKeyUp($event)">
+           (keyup)="onKeyUp($event, input)">
+
+    <span *ngIf="error">{{ error }}</span>
   </div>
 </div>
