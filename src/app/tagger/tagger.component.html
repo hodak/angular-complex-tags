@@ -8,6 +8,10 @@ Tagger:
       </template>
     </span>
 
-    <input class="tagger__input" placeholder="Add new tag">
+    <input class="tagger__input"
+           placeholder="Add new tag"
+           #input
+           [(ngModel)]="inputValue"
+           (keyup)="onKeyUp($event)">
   </div>
 </div>

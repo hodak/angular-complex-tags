@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app works!';
+  inputValue = '';
 
   tags = [
     {
@@ -19,4 +20,16 @@ export class AppComponent {
       email: 'hodor@example.com',
     },
   ]
+
+  handleNewTag(inputValue) {
+    if(this.isValidEmail(inputValue)) {
+      this.tags.push({ type: 'email', email: inputValue });
+    } else {
+      this.inputValue = inputValue;
+    }
+  }
+
+  isValidEmail(value) {
+    return value.includes('@');
+  }
 }

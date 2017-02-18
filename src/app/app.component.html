@@ -1,4 +1,8 @@
-<tagger [tags]="tags" [singleTagTemplate]="tagTemplate"></tagger>
+<tagger [tags]="tags"
+        [singleTagTemplate]="tagTemplate"
+        (newTag)="handleNewTag($event)"
+        [inputValue]="inputValue"
+></tagger>
 
 <template #tagTemplate let-tag="tag">
   <span *ngIf="tag.type === 'candidate'">{{ tag.name }} ({{ tag.email }})</span>
