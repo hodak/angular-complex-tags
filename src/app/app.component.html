@@ -1,1 +1,5 @@
-<tagger [tags]="tags"></tagger>
+<tagger [tags]="tags" [singleTagTemplate]="tagTemplate"></tagger>
+
+<template #tagTemplate let-tag="tag">
+  {{ tag | json }}
+</template>

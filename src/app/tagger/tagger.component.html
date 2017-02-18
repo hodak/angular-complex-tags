@@ -1,3 +1,9 @@
 Tagger:
 
-{{ tags | json }}
+<ul>
+  <li *ngFor="let tag of tags">
+    <template [ngTemplateOutlet]="singleTagTemplate"
+              [ngOutletContext]="{tag: tag}">
+    </template>
+  </li>
+</ul>
