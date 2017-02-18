@@ -1,5 +1,6 @@
 <tagger [tags]="tags" [singleTagTemplate]="tagTemplate"></tagger>
 
 <template #tagTemplate let-tag="tag">
-  {{ tag | json }}
+  <span *ngIf="tag.type === 'candidate'">{{ tag.name }} ({{ tag.email }})</span>
+  <span *ngIf="tag.type === 'email'">{{ tag.email }}</span>
 </template>

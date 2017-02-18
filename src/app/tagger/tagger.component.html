@@ -1,9 +1,13 @@
 Tagger:
 
-<ul>
-  <li *ngFor="let tag of tags">
-    <template [ngTemplateOutlet]="singleTagTemplate"
-              [ngOutletContext]="{tag: tag}">
-    </template>
-  </li>
-</ul>
+<div class="tagger">
+  <div class="tagger__tags">
+    <span *ngFor="let tag of tags" class="tagger__tag">
+      <template [ngTemplateOutlet]="singleTagTemplate"
+                [ngOutletContext]="{tag: tag}">
+      </template>
+    </span>
+
+    <input class="tagger__input" placeholder="Add new tag">
+  </div>
+</div>
