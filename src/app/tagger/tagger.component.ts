@@ -8,6 +8,7 @@ import { Component, Input, Output, EventEmitter, ViewChild, ViewChildren } from 
 export class TaggerComponent {
   @Input() tags = [];
   @Input() singleTagTemplate;
+  @Input() afterTagsTemplate;
   @Input() delimiterKeyCodes = [32, 13, 188]; // [space, enter, comma]
   @Input() tagValidator = (_) => null;
   @Output() newTag = new EventEmitter();

@@ -9,6 +9,8 @@
       <a href="#" (click)="delete(tag, index)" class="tagger__close">&times;</a>
     </span>
 
+    <span *ngIf="afterTagsTemplate" [ngTemplateOutlet]="afterTagsTemplate"></span>
+
     <input class="tagger__input"
            placeholder="Add new tag"
            #input

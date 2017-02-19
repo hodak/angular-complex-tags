@@ -1,5 +1,6 @@
 <tagger [tags]="tags"
         [singleTagTemplate]="tagTemplate"
+        [afterTagsTemplate]="peopleSelectTemplate"
         [tagValidator]="emailValidator"
         (newTag)="handleNewTag($event)"
         (deleteTag)="handleDeleteTag($event)"
@@ -9,3 +10,24 @@
   <span *ngIf="tag.type === 'candidate'">{{ tag.name }} ({{ tag.email }})</span>
   <span *ngIf="tag.type === 'email'">{{ tag.email }}</span>
 </template>
+
+<template #peopleSelectTemplate>
+  <span (click)="showPeople = !showPeople">
+    [<span *ngIf="showPeople">-</span><span *ngIf="!showPeople">+</span>]
+  </span>
+</template>
+
+<div *ngIf="showPeople">
+  <ul>
+    <li *ngFor="let person of people">
+      <label>
+        <input type="checkbox"
+               name="people"
+               value="person"
+               [(ngModel)]="person.selected"
+               (change)="handleCheckboxChange(person)">
+        {{ person.name }} ({{ person.email }})
+      </label>
+    </li>
+  </ul>
+</div>
