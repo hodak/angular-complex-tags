@@ -12,7 +12,7 @@ Tagger:
     <input class="tagger__input"
            placeholder="Add new tag"
            #input
-           (keyup)="onKeyUp($event, input)">
+           (keydown)="onKeyDown($event, input)">
 
     <span *ngIf="error">{{ error }}</span>
   </div>
