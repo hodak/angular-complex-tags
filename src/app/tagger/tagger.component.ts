@@ -11,6 +11,7 @@ export class TaggerComponent {
   @Input() afterTagsTemplate;
   @Input() delimiterKeyCodes = [32, 13, 188]; // [space, enter, comma]
   @Input() tagValidator = (_) => null;
+  @Input() tagTypeKey = 'type';
   @Output() newTag = new EventEmitter();
   @Output() deleteTag = new EventEmitter();
   @ViewChild('input') input;

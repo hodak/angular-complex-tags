@@ -4,7 +4,7 @@
   border-radius: 3px;
   padding: 5px;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 32px;
 }
 
 .tagger__tag {
@@ -12,9 +12,10 @@
   background: #e4f5ff;
   border: 1px solid #8fbbd5;
   margin-right: 5px;
-  padding: 5px;
+  padding: 0 5px;
   white-space: nowrap;
   border-radius: 3px;
+  vertical-align: bottom;
 }
 
 .tagger__close {

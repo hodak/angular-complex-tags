@@ -7,7 +7,12 @@
 ></tagger>
 
 <template #tagTemplate let-tag="tag">
-  <span *ngIf="tag.type === 'candidate'">{{ tag.name }} ({{ tag.email }})</span>
+  <span *ngIf="tag.type === 'candidate'">
+    <img [src]="tag.avatar" class="tag__avatar">
+    <strong class="tag__name">{{ tag.name }}</strong>
+    <span class="tag__email">({{ tag.email }})</span>
+  </span>
+
   <span *ngIf="tag.type === 'email'">{{ tag.email }}</span>
 </template>
 
@@ -26,7 +31,7 @@
                value="person"
                [(ngModel)]="person.selected"
                (change)="handleCheckboxChange(person)">
-        {{ person.name }} ({{ person.email }})
+        <img [src]="person.avatar"> {{ person.name }} ({{ person.email }})
       </label>
     </li>
   </ul>

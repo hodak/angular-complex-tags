@@ -1,7 +1,7 @@
 <div class="tagger">
   <div class="tagger__tags" (click)="handleTagsClick($event)">
     <span *ngFor="let tag of tags; let index = index"
-          class="tagger__tag"
+          [class]="'tagger__tag tagger__tag--' + tag[tagTypeKey]"
           #tagElRef>
       <template [ngTemplateOutlet]="singleTagTemplate || defaultSingleTagTemplate"
                 [ngOutletContext]="{tag: tag}">
