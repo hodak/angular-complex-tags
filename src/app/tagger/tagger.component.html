@@ -1,21 +1,18 @@
-Tagger:
-
 <div class="tagger">
   <div class="tagger__tags">
     <span *ngFor="let tag of tags; let index = index" class="tagger__tag">
       <template [ngTemplateOutlet]="singleTagTemplate || defaultSingleTagTemplate"
                 [ngOutletContext]="{tag: tag}">
       </template>
-      <a href="#" (click)="delete(tag, index)">&times;</a>
+      <a href="#" (click)="delete(tag, index)" class="tagger__close">&times;</a>
     </span>
 
     <input class="tagger__input"
            placeholder="Add new tag"
            #input
            (keydown)="onKeyDown($event, input)">
-
-    <span *ngIf="error">{{ error }}</span>
   </div>
+  <span *ngIf="error" class="tagger__error">{{ error }}</span>
 </div>
 
 <template #defaultSingleTagTemplate let-tag="tag">
