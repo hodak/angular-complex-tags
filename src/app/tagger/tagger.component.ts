@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ViewChild, ViewChildren } from '@angular/core';
 
 @Component({
   selector: 'tagger',
@@ -12,6 +12,8 @@ export class TaggerComponent {
   @Input() tagValidator = (_) => null;
   @Output() newTag = new EventEmitter();
   @Output() deleteTag = new EventEmitter();
+  @ViewChild('input') input;
+  @ViewChildren('tagElRef') tagElRefs;
 
   error;
 
@@ -31,6 +33,16 @@ export class TaggerComponent {
   }
 
   delete(tag, index) {
-    this.deleteTag.emit({ tag, index });
+    setTimeout(() => { this.deleteTag.emit({ tag, index }); }, 0);
+  }
+
+  handleTagsClick(event) {
+    let clickedOnSingleTag =
+      this.tagElRefs
+      .some((tagElRef) => tagElRef.nativeElement.contains(event.target));
+
+    if(!clickedOnSingleTag) {
+      this.input.nativeElement.focus();
+    }
   }
 }

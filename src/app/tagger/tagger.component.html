@@ -1,6 +1,8 @@
 <div class="tagger">
-  <div class="tagger__tags">
-    <span *ngFor="let tag of tags; let index = index" class="tagger__tag">
+  <div class="tagger__tags" (click)="handleTagsClick($event)">
+    <span *ngFor="let tag of tags; let index = index"
+          class="tagger__tag"
+          #tagElRef>
       <template [ngTemplateOutlet]="singleTagTemplate || defaultSingleTagTemplate"
                 [ngOutletContext]="{tag: tag}">
       </template>
