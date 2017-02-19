@@ -2,11 +2,11 @@ Tagger:
 
 <div class="tagger">
   <div class="tagger__tags">
-    <span *ngFor="let tag of tags" class="tagger__tag">
+    <span *ngFor="let tag of tags; let index = index" class="tagger__tag">
       <template [ngTemplateOutlet]="singleTagTemplate || defaultSingleTagTemplate"
                 [ngOutletContext]="{tag: tag}">
       </template>
-      <a href="#" (click)="delete(tag)">&times;</a>
+      <a href="#" (click)="delete(tag, index)">&times;</a>
     </span>
 
     <input class="tagger__input"

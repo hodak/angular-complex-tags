@@ -30,7 +30,7 @@ export class TaggerComponent {
     input.value = '';
   }
 
-  delete(tag) {
-    this.deleteTag.emit(tag);
+  delete(tag, index) {
+    this.deleteTag.emit({ tag, index });
   }
 }

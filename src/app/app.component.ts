@@ -8,7 +8,6 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'app works!';
 
-  // TODO? tags must be unique - for deleting purposes
   tags = [
     {
       type: 'candidate',
@@ -29,7 +28,7 @@ export class AppComponent {
     this.tags.push({ type: 'email', email: inputValue });
   }
 
-  handleDeleteTag(tag) {
-    this.tags.splice(this.tags.indexOf(tag), 1);
+  handleDeleteTag({ index }) {
+    this.tags.splice(index, 1);
   }
 }
