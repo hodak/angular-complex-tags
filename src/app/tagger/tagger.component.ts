@@ -20,6 +20,8 @@ export class TaggerComponent {
   error;
 
   onKeyDown(event, input) {
+    this.error = null;
+
     if(this.delimiterKeyCodes.indexOf(event.keyCode) === -1) { return }
     event.preventDefault();
 
@@ -28,7 +30,6 @@ export class TaggerComponent {
 
     let error = this.tagValidator(input.value)
     if(error) { return this.error = error; }
-    this.error = null;
 
     this.newTag.emit(input.value);
     input.value = '';
